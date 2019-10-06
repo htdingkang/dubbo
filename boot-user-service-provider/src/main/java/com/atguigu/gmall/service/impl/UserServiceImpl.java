@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
-//@Service  //dubbo暴露服务
-//@Component
+@Service  //dubbo暴露服务
+@Component
 public class UserServiceImpl implements UserService {
 
 	@Override
