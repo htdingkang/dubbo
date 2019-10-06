@@ -11,6 +11,7 @@
     <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
 
     <!-- 声明要调用的服务接口(提供者暴露的接口)，生成远程服务代理 -->
+    <!-- 关闭启动检查 check=false -->
     <dubbo:reference interface="com.atguigu.gmall.service.UserService"
         id="userService"></dubbo:reference>
 
@@ -18,5 +19,9 @@
     <dubbo:monitor protocol="registry"></dubbo:monitor>
     <!--<dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>-->
 
+
+    <!--  配置当前消费者的统一规则  -->
+    <!-- 所有消费者都不启动检查   -->
+    <dubbo:consumer check="false" ></dubbo:consumer>
 
 </beans>
