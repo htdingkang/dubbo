@@ -12,8 +12,12 @@
 
     <!-- 声明要调用的服务接口(提供者暴露的接口)，生成远程服务代理 -->
     <!-- 关闭启动检查 check=false -->
+    <!-- 设置超时，单位毫秒  timeout=5000 默认是1000-->
+    <!-- 配置优先级  方法优先，接口次之，全局配置再次之，如果级别一样，则消费方优先，提供方次之。-->
     <dubbo:reference interface="com.atguigu.gmall.service.UserService"
-        id="userService"></dubbo:reference>
+        id="userService" timeout="5000">
+        <dubbo:method name="getUserAddressList" timeout="3000"></dubbo:method>
+    </dubbo:reference>
 
     <!-- 监控中心协议，如果为protocol="registry"，表示从注册中心发现监控中心地址，否则直连监控中心 -->
     <dubbo:monitor protocol="registry"></dubbo:monitor>
@@ -22,6 +26,7 @@
 
     <!--  配置当前消费者的统一规则  -->
     <!-- 所有消费者都不启动检查   -->
-    <dubbo:consumer check="false" ></dubbo:consumer>
+    <!-- 全局配置超时时间-->
+    <dubbo:consumer check="false" timeout="5000"></dubbo:consumer>
 
 </beans>

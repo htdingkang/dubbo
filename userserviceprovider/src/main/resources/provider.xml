@@ -11,7 +11,9 @@
     <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
     <!-- 暴露服务   ref:指向服务的真正实现对象 -->
     <dubbo:service interface="com.atguigu.gmall.service.UserService"
-                   ref="userServiceImpl"></dubbo:service>
+                   ref="userServiceImpl">
+        <dubbo:method name="getUserAddressList" timeout="2000"></dubbo:method>
+    </dubbo:service>
 
     <bean name="userServiceImpl" class="com.atguigu.gmall.service.impl.UserServiceImpl"></bean>
 
