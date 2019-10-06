@@ -14,5 +14,9 @@
     <dubbo:reference interface="com.atguigu.gmall.service.UserService"
         id="userService"></dubbo:reference>
 
+    <!-- 监控中心协议，如果为protocol="registry"，表示从注册中心发现监控中心地址，否则直连监控中心 -->
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+    <!--<dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>-->
+
 
 </beans>
