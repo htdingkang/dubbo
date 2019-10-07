@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Reference(url="127.0.0.1:20880")  //依赖的远程接口，声明服务代理  //dubbo直连
+    @Reference(loadbalance = "roundrobin")   //配置负载均衡策略
     UserService userService;
 
     @Override
